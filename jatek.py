@@ -121,3 +121,36 @@ if hp > 0:
         else:
             print("Kereskedő: Ilyen nincs.")
     print(days, ". napod ért véget.")
+# 4. nap: mocsár vagy forrás
+if hp > 0:
+    days = days + 1
+    print("")
+    print("4. nap")
+    print("Balra egy mocsár van, lehet hogy van benne kincs.")
+    print("Jobbra egy forrás van.")
+    valasztas = int(input("Balra vagy jobbra szeretnél menni? Írd be hogy 1 (balra), vagy 2 (jobbra): "))
+    if valasztas == 1:
+        print("Balra mentél!")
+        print("Találtál egy ládát, 40 arany volt benne!")
+        print("De megcsípett egy kígyó és megmérgezett!")
+        gold = gold + 40
+        for kor in range(3, 0, -1):
+            mereg = kor * 4
+            hp = hp - mereg
+            if hp < 0:
+                hp = 0
+            print("A méreg sebzett:", mereg, "-> hp-d:", hp)
+        print("Elmúlt a méreg.")
+    elif valasztas == 2:
+        print("Jobbra mentél!")
+        print("Ittál a forrásból, kaptál 30 hp-t!")
+        hp = hp + 30
+        if hp > max_hp:
+            hp = max_hp
+    else:
+        print("Egy helyben álltál egész nap.")
+    if hp < 0:
+        hp = 0
+    print(hp, "❤️   hp-d maradt.")
+    print(gold, "gold-od lett.")
+    print(days, ". napod ért véget.")
